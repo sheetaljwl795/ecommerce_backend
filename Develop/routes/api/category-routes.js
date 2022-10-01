@@ -7,7 +7,11 @@ const { Category, Product, ProductTag, Tag } = require('../../models');
   // be sure to include its associated Products
   router.get('/', async (req, res) => {
     try {
-      const categoriesData = await Category.findAll({      });
+      const categoriesData = await Category.findAll({  
+        include: [
+          {model : Product}]
+          });
+      if(categoriesData.length === 0) console.log("No categories saved")
       res.status(200).json(categoriesData);
     } catch (err) {
       res.status(500).json(err);
