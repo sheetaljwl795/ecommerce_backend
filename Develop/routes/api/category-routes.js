@@ -23,8 +23,9 @@ const { Category, Product, ProductTag, Tag } = require('../../models');
   // be sure to include its associated Products
   router.get('/:id', async (req, res) => {
     try {
-      const categoriesData = await Category.findByPk(req.params.id, {
-        include:  [{ model: Product }, { model: ProductTag }],
+      const categoriesData = await Category.findOne(
+        {where: {id: req.params.id}, 
+        include:[{ model: Product,},],
       });
   
       if (!categoriesData) {
