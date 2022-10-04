@@ -47,7 +47,6 @@ npm install express sequelize mysql2
 Open up MySQL shell and input
 
 source db/schema.sql
-and
 
 use ecommerce_db
 Then quit MySQL shell and input the following in your terminal
